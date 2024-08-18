@@ -2,17 +2,21 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./slices/authslice";
 import testReducer from "./slices/testSlice";
 import submissionReducer from "./slices/submissionSlice";
-import notificationReducer from "./slices/notificationSlice";
-import profileReducer from "./slices/profileSlice";
+import storage from "redux-persist/lib/storage";
+import { persistStore,persistReducer } from "redux-persist";
 
+
+const persistConfig={
+  key:'root',
+  storage,
+}
+const persistedAuthReducer=persistReducer(persistConfig,authReducer)
 const store = configureStore({
   reducer: {
-    auth: authReducer,
+    auth: persistedAuthReducer,
     test: testReducer,
     submission: submissionReducer,
-    notification: notificationReducer,
-    profile: profileReducer,
   },
 });
-
+export const persistor=persistStore(store);
 export default store;

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Navbar = () => {
+const Navbar = ({title}) => {
   return (
-    <div className='flex justify-center p-3 bg-gray-300'>Online Test - Cat Preparation</div>
+    <div className='flex justify-center p-3 bg-blue-100 shadow-sm shadow-blue-100  border border-b-blue-600 rounded-sm  text-blue-900 font-semibold text'>Online Test - {title}</div>
   )
 }
 

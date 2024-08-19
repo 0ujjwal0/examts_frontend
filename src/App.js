@@ -5,6 +5,7 @@ import tests from "./pages/tests";
 import "react-toastify/dist/ReactToastify.css";
 import TestDetailPage from "./pages/testDetailPage";
 import StartTestPage from "./pages/startTestPage";
+import Thankyou from "./pages/thankyou";
 
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
         <Route
           path="/test/:testId/start"
           Component={StartTestPage}
+        />
+        <Route
+          path="/thankpage"
+          Component={Thankyou}
         />
         <Route
           path="/tests"

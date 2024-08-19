@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const TestsPage = () => {
   const [tests, setTests] = useState([]);
   const tokenFromRedux = useSelector((state) => state.auth.token);
-
+  const navigate=useNavigate();
   useEffect(() => {
     const fetchTests = async () => {
       try {
@@ -34,6 +34,13 @@ const TestsPage = () => {
 
     fetchTests();
   }, [tokenFromRedux]); // Add tokenFromRedux to dependencies
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    const user = localStorage.getItem("userData");
+    if (!user) {
+      navigate("/");
+    }
+  };
 
   return (
     <div className="p-6">
@@ -44,15 +51,11 @@ const TestsPage = () => {
             key={test._id}
             className="mb-2"
           >
-            <Link
-              to={`/test/${test._id}`}
-              
-            >
-              {test.title}
-            </Link>
+            <Link to={`/test/${test._id}`}>{test.title}</Link>
           </li>
         ))}
       </ul>
+      <button onClick={handleLogout}>logout</button>
     </div>
   );
 };

@@ -22,7 +22,7 @@ const TestsPage = () => {
         };
 
         const response = await axios.get(
-          "https://localhost:5000/api/tests/",
+          "http://localhost:5000/api/tests/",
           config
         );
         setTests(response.data); // Directly use response.data

@@ -26,7 +26,7 @@ const StartTest = () => {
         };
 
         const response = await axios.get(
-          `https://localhost:5000/api/tests/${testId}`,
+          `http://localhost:5000/api/tests/${testId}`,
           config
         );
         setQuestions(response.data.questions);
@@ -128,7 +128,7 @@ const StartTest = () => {
       };
 
       await axios.post(
-        "https://localhost:5000/api/submission/",
+        "http://localhost:5000/api/submission/",
         submissionData,
         config
       );

@@ -23,7 +23,7 @@ const TestDetail = () => {
         };
 
         const response = await axios.get(
-          `https://localhost:5000/api/tests/${testId}`,
+          `http://localhost:5000/api/tests/${testId}`,
           config
         );
         setTest(response.data);

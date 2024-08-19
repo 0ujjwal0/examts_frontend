@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 const TestsPage = () => {
   const [tests, setTests] = useState([]);
   const tokenFromRedux = useSelector((state) => state.auth.token);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchTests = async () => {
       try {
@@ -22,7 +22,7 @@ const TestsPage = () => {
         };
 
         const response = await axios.get(
-          "http://localhost:5000/api/tests/",
+          "https://examly-backend-znqt.onrender.com/api/tests/",
           config
         );
         setTests(response.data); // Directly use response.data

@@ -6,23 +6,22 @@ import { useDispatch } from "react-redux";
 import { loginSuccess } from "../store/slices/authslice";
 
 const Signup = () => {
-    const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
     confirmpass: "",
   });
-  
+
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
-      setFormData({ ...formData, [name]: value });
-    
+
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
@@ -49,14 +48,14 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/user/",
+        "https://examly-backend-znqt.onrender.com/api/user/",
         { name, email, password },
         config
       );
       toast.success("Registration Successful", { autoClose: 3000 });
       localStorage.setItem("userData", JSON.stringify(data));
       dispatch(loginSuccess(data));
-      
+
       setLoading(false);
       navigate("/tests");
     } catch (error) {
@@ -64,8 +63,6 @@ const Signup = () => {
       setLoading(false);
     }
   };
-
- 
 
   return (
     <form

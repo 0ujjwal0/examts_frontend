@@ -11,7 +11,7 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
@@ -25,7 +25,7 @@ const SignIn = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/user/login",
+        "https://examly-backend-znqt.onrender.com/api/user/login",
         { email, password },
         config
       );

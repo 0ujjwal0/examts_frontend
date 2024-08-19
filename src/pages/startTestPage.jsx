@@ -11,7 +11,7 @@ const StartTest = () => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [timeLeft, setTimeLeft] = useState(3600 * 1000); // 1 hour in milliseconds
   const [markedForReview, setMarkedForReview] = useState({});
-  const [title,setTitle]=useState('');
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
     const fetchTestDetails = async () => {
@@ -26,7 +26,7 @@ const StartTest = () => {
         };
 
         const response = await axios.get(
-          `http://localhost:5000/api/tests/${testId}`,
+          `https://examly-backend-znqt.onrender.com/api/tests/${testId}`,
           config
         );
         setQuestions(response.data.questions);
@@ -128,7 +128,7 @@ const StartTest = () => {
       };
 
       await axios.post(
-        "http://localhost:5000/api/submission/",
+        "https://examly-backend-znqt.onrender.com/api/submission/",
         submissionData,
         config
       );
@@ -136,7 +136,6 @@ const StartTest = () => {
       navigate("/thankpage");
     } catch (error) {
       console.error("Error submitting test:", error);
-      
     }
   };
 

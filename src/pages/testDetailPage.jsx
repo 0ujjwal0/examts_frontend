@@ -23,7 +23,7 @@ const TestDetail = () => {
         };
 
         const response = await axios.get(
-          `https://examly-backend-znqt.onrender.com/api/tests/${testId}`,
+          `https://localhost:5000/api/tests/${testId}`,
           config
         );
         setTest(response.data);

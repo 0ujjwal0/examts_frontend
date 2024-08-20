@@ -32,7 +32,7 @@ const StartTest = () => {
         };
 
         const response = await axios.get(
-          `http://https://examly-backend-znqt.onrender.com/api/tests/${testId}`,
+          `https://examly-backend-znqt.onrender.com/api/tests/${testId}`,
           config
         );
         setQuestions(response.data.questions);
@@ -141,7 +141,7 @@ const StartTest = () => {
       };
 
       await axios.post(
-        "http://https://examly-backend-znqt.onrender.com/api/submission/",
+        "https://examly-backend-znqt.onrender.com/api/submission/",
         submissionData,
         config
       );

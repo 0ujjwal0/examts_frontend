@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-
 const TestsPage = () => {
   const [tests, setTests] = useState([]);
   const tokenFromRedux = useSelector((state) => state.auth.token);
@@ -23,7 +22,7 @@ const TestsPage = () => {
         };
 
         const response = await axios.get(
-          "http://localhost:5000/api/tests/",
+          "http://https://examly-backend-znqt.onrender.com/api/tests/",
           config
         );
         setTests(response.data);

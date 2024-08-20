@@ -32,7 +32,7 @@ const StartTest = () => {
         };
 
         const response = await axios.get(
-          `http://localhost:5000/api/tests/${testId}`,
+          `http://https://examly-backend-znqt.onrender.com/api/tests/${testId}`,
           config
         );
         setQuestions(response.data.questions);
@@ -103,10 +103,11 @@ const StartTest = () => {
       [currentQuestionIndex]: !prevReview[currentQuestionIndex],
     }));
   };
-useEffect(() => {
+  useEffect(() => {
     const handleBeforeUnload = (event) => {
       event.preventDefault();
-      event.returnValue = "Are you sure you want to leave? Your progress will be lost.";
+      event.returnValue =
+        "Are you sure you want to leave? Your progress will be lost.";
     };
 
     window.addEventListener("beforeunload", handleBeforeUnload);
@@ -140,7 +141,7 @@ useEffect(() => {
       };
 
       await axios.post(
-        "http://localhost:5000/api/submission/",
+        "http://https://examly-backend-znqt.onrender.com/api/submission/",
         submissionData,
         config
       );

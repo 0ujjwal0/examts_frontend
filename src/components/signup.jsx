@@ -48,7 +48,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/user/",
+        "http://https://examly-backend-znqt.onrender.com/api/user/",
         { name, email, password },
         config
       );

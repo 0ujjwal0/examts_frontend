@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import VideoPreview from "../components/videopreview";
 
 const TestDetail = () => {
   const [test, setTest] = useState(null);
@@ -50,16 +51,28 @@ const TestDetail = () => {
   }
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">{test.title}</h1>
-      <p className="mb-4">{test.description}</p>
-      <p className="mb-4">Duration: {test.duration} minutes</p>
-      <button
-        onClick={handleStartTest}
-        className="px-4 py-2 bg-blue-500 text-white rounded"
-      >
-        Start Test
-      </button>
+    <div className="">
+      <div className="mb-4 bg-gradient-to-t from-blue-400 to-blue-800  flex justify-between  ">
+        <h1 className="text-2xl text-white font-semibold p-4">{test.title}</h1>
+        <p className="text-lg text-white font-semibold p-4">
+          Duration: {test.duration} minutes
+        </p>
+      </div>
+      <div className=" bg-fuchsia-600 h-screen flex justify-evenly">
+        {/* <VideoPreview /> */}
+        <div className="w-3/4 bg-green-100">
+          <p className="mb-4">{test.description}</p>
+        </div>
+        <div className=" bg-black">
+          <div>gg'</div>
+          <button
+            onClick={handleStartTest}
+            className="px-4 py-2 bg-blue-500 text-white rounded"
+          >
+            Start Test
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

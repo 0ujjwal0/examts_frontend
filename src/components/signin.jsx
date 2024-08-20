@@ -15,7 +15,7 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
-      toast.warning("Please fill in all fields", { autoClose: 3000 });
+      toast.warning("Please fill in all fields", { autoclose: 2000 });
       return;
     }
     try {
@@ -29,13 +29,13 @@ const SignIn = () => {
         { email, password },
         config
       );
-      toast.success("login successful", { autoClose: 3000 });
+      toast.success("login successful", { autoclose: 2000 });
       localStorage.setItem("userData", JSON.stringify(data));
       dispatch(loginSuccess(data));
       setLoading(false);
       navigate("/tests");
     } catch (error) {
-      toast.error("error occured!!", { autoClose: 3000 });
+      toast.error("error occured!!", { autoclose: 2000 });
       setLoading(false);
     }
   };

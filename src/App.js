@@ -6,11 +6,13 @@ import "react-toastify/dist/ReactToastify.css";
 import TestDetailPage from "./pages/testDetailPage";
 import StartTestPage from "./pages/startTestPage";
 import Thankyou from "./pages/thankyou";
+import NavMain from "./components/navmain";
 
 
 function App() {
   return (
     <div>
+      <NavMain/>
       <Routes>
         <Route
           path="/"

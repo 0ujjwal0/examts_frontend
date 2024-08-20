@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar";
+import VideoPreview from "../components/videopreview";
 
 const StartTest = () => {
   const { testId } = useParams();
@@ -158,7 +159,7 @@ const StartTest = () => {
         <div className="w-2/3 rounded-lg border-gray-400 shadow-3xl shadow-gray-800">
           <Navbar title={title} />
           <div className="h-screen flex flex-col justify-evenly">
-            <div className="p-6 mb-5 w-full h-auto bg-white border-2 select-none">
+            <div className="p-6 mb-5 w-full h-auto  select-none">
               <h1 className="text-2xl font-semibold mb-4 text-gray-700">
                 Question-{currentQuestionIndex + 1}
               </h1>
@@ -216,10 +217,14 @@ const StartTest = () => {
         </div>
 
         <div className="flex flex-col items-center bg-white w-1/3">
-          <div className="p-3 w-full flex justify-center bg-blue-200 border border-blue-300">
+          <div className="p-3 w-full flex justify-center bg-gray-300 border border-gray-300">
             <h2>Time Left: {formatTime(timeLeft)}</h2>
           </div>
-          <div className="w-full h-full mb-4 py-4 flex flex-col justify-around">
+          <div className="w-full h-full mb-4 py-4 flex flex-col justify-evenly">
+            <div>
+              {" "}
+              <VideoPreview />
+            </div>
             <div className="h-2/3 border border-b-gray-500 border-t-gray-400 rounded-lg flex flex-col">
               <div>
                 <h2 className="text-lg w-full p-2 bg-gray-300 text-gray-700 font-semibold flex justify-center">

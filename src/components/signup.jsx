@@ -30,13 +30,13 @@ const Signup = () => {
     const { name, email, password, confirmpass } = formData;
 
     if (!name || !email || !password || !confirmpass) {
-      toast.warning("Please fill out all fields!", { autoClose: 3000 });
+      toast.warning("Please fill out all fields!", { autoclose: 2000 });
       setLoading(false);
       return;
     }
 
     if (password !== confirmpass) {
-      toast.error("Passwords do not match", { autoClose: 3000 });
+      toast.error("Passwords do not match", { autoclose: 2000 });
       setLoading(false);
       return;
     }
@@ -48,18 +48,18 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "https://examly-backend-znqt.onrender.com/api/user/",
+        "http://localhost:5000/api/user/",
         { name, email, password },
         config
       );
-      toast.success("Registration Successful", { autoClose: 3000 });
+      toast.success("Registration Successful", { autoclose: 2000 });
       localStorage.setItem("userData", JSON.stringify(data));
       dispatch(loginSuccess(data));
 
       setLoading(false);
       navigate("/tests");
     } catch (error) {
-      toast.error("An error occurred during registration", { autoClose: 3000 });
+      toast.error("An error occurred during registration", { autoclose: 2000 });
       setLoading(false);
     }
   };

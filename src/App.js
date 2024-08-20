@@ -1,12 +1,12 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "./pages/home";
-import tests from "./pages/tests";
 import "react-toastify/dist/ReactToastify.css";
 import TestDetailPage from "./pages/testDetailPage";
-import StartTestPage from "./pages/startTestPage";
 import Thankyou from "./pages/thankyou";
-
+import NavMain from "./components/navmain";
+import StartTest from "./pages/startTestPage";
+import TestsPage from "./pages/tests";
 
 function App() {
   return (
@@ -14,23 +14,43 @@ function App() {
       <Routes>
         <Route
           path="/"
-          Component={Homepage}
+          element={
+            <>
+              <NavMain />
+              <Homepage />
+            </>
+          }
         />
         <Route
           path="/test/:testId"
-          Component={TestDetailPage}
+          element={
+            <>
+              <NavMain />
+              <TestDetailPage />
+            </>
+          }
         />
         <Route
           path="/test/:testId/start"
-          Component={StartTestPage}
+          element={<StartTest />}
         />
         <Route
           path="/thankpage"
-          Component={Thankyou}
+          element={
+            <>
+              <NavMain />
+              <Thankyou />
+            </>
+          }
         />
         <Route
           path="/tests"
-          Component={tests}
+          element={
+            <>
+              <NavMain />
+              <TestsPage />
+            </>
+          }
         />
       </Routes>
     </div>

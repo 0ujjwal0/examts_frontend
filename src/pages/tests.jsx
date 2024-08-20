@@ -3,13 +3,17 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+
 const TestsPage = () => {
   const [tests, setTests] = useState([]);
   const tokenFromRedux = useSelector((state) => state.auth.token);
+  const [userData, setUserData] = useState({});
+
   useEffect(() => {
     const fetchTests = async () => {
       try {
         const userData = JSON.parse(localStorage.getItem("userData"));
+        setUserData(userData);
         const token = userData?.token || tokenFromRedux;
 
         const config = {
@@ -33,9 +37,9 @@ const TestsPage = () => {
   }, [tokenFromRedux]);
 
   return (
-    <div className="p-6 flex flex-col lg:flex-row h-screen bg-gray-100">
-      <div className="w-full lg:w-2/3 mb-6 lg:mb-0">
-        <ul className="flex flex-wrap justify-center gap-6 lg:gap-10 h-auto lg:h-80 w-full">
+    <div className="p-6 flex flex-col lg:flex-row h-screen ">
+      <div className="w-full  lg:w-2/3 mb-6 lg:mb-0">
+        <ul className="p-4  flex flex-wrap justify-center gap-6 lg:gap-10  lg:h-80 w-full">
           {tests.map((test) => (
             <li
               key={test._id}
@@ -51,7 +55,7 @@ const TestsPage = () => {
               </div>
               <div>
                 <Link
-                  className="bg-gray-200 text-gray-700 rounded-md mt-4 px-3 hover:shadow-xl hover:bg-gray-400 hover:text-gray-200 hover:shadow-[#47d5dc]"
+                  className="bg-white text-gray-700 font-semibold rounded-md mt-4 px-3 hover:shadow-xl hover:bg-white hover:text-violet-600 hover:shadow-violet-400 hover:border hover:border-b-violet-300"
                   to={`/test/${test._id}`}
                 >
                   Select Test
@@ -61,8 +65,14 @@ const TestsPage = () => {
           ))}
         </ul>
       </div>
-      <div className="w-full md:2/3 lg:w-1/3 flex justify-center lg:justify-start">
-        <div className="bg-white p-6 shadow-md rounded-lg w-full  ">Hi</div>
+      <div className="  w-full md:2/3  lg:w-1/3 flex flex-col justify-center lg:justify-start ">
+        <div className="bg-violet-200 text-blue-900 p-6 shadow-lg rounded-lg w-full text-3xl  ">
+          {" "}
+          Hello there {userData.name}! ,ready to improve yourself today?
+          <div className="text-lg text-gray-600 p-6">
+            click on any test here and get on!!!!!
+          </div>
+        </div>
       </div>
     </div>
   );

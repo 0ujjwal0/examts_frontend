@@ -157,7 +157,7 @@ const StartTest = () => {
   }
 
   return (
-    <div className="flex rounded-lg">
+    <div className="flex rounded-lg bg-blue-50">
       <div className="w-2/3 rounded-lg border-gray-400 shadow-3xl shadow-gray-800">
         <Navbar title={title} />
         <div className="h-screen flex flex-col justify-evenly">
@@ -176,17 +176,19 @@ const StartTest = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center bg-white w-1/3">
+      <div className="flex flex-col items-center w-1/3">
         <Timer timeLeft={timeLeft} />
         <VideoPreview />
-        <QuestionList
-          questions={questions}
-          currentQuestionIndex={currentQuestionIndex}
-          markedForReview={markedForReview}
-          selectedAnswers={selectedAnswers}
-          handleQuestionClick={handleQuestionClick}
-        />
-        <SubmitButton handleSubmitTest={handleSubmitTest} />
+        <div className="h-full flex flex-col items-center justify-evenly ">
+          <QuestionList
+            questions={questions}
+            currentQuestionIndex={currentQuestionIndex}
+            markedForReview={markedForReview}
+            selectedAnswers={selectedAnswers}
+            handleQuestionClick={handleQuestionClick}
+          />
+          <SubmitButton handleSubmitTest={handleSubmitTest} />
+        </div>
       </div>
     </div>
   );

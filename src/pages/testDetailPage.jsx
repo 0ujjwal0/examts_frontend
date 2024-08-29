@@ -56,25 +56,25 @@ const TestDetail = () => {
   }
 
   return (
-    <div className="">
-      <div className="mb-4 bg-gradient-to-t from-blue-300 to-violet-500 flex flex-col lg:flex-row justify-between p-4">
+    <div className="bg-blue-50">
+      <nav className="mb-2 bg-gradient-to-t from-blue-300 to-violet-500 flex flex-col lg:flex-row justify-between p-4">
         <div>
           <h1 className="text-2xl text-white font-semibold mb-2 lg:mb-0">
             {test.title}
           </h1>
-          <span className="text-black text-xs px-2 ml-4 bg-white rounded-md">
+          <span className="text-violet-800 text-xs font-semibold px-1 ml-4 bg-white rounded-sm">
             {test.description}
           </span>
         </div>
         <p className="text-lg text-white font-semibold">
           {test.duration} minutes
         </p>
-      </div>
+      </nav>
       <form className="h-screen flex flex-col lg:flex-row justify-evenly p-4 space-y-4 lg:space-y-0">
-        <div className="w-full lg:w-3/4 bg-violet-200 rounded-lg p-4 font-serif">
+        <div className="w-full lg:w-4/5 bg-blue-200 rounded-lg p-4 font-serif">
           <div className="p-4">
             <div className="flex justify-center">
-              <h2 className="text-xl font-semibold mb-2 font-sans text-gray-900 border-b-2 border-gray-600 w-full">
+              <h2 className="text-xl font-semibold mb-2 font-sans text-blue-900 border-b-2 border-gray-600 w-full">
                 Test Instructions
               </h2>
             </div>
@@ -167,7 +167,7 @@ const TestDetail = () => {
             </ul>
           </div>
         </div>
-        <div className="w-full lg:w-1/5 flex flex-col items-center">
+        <div className="w-full lg:w-1/5 flex flex-col items-center gap-6">
           <VideoPreview />
           <button
             onClick={handleStartTest}

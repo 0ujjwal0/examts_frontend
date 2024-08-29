@@ -4,7 +4,7 @@ const QuestionNavigation = ({
   handleNavigation,
   handleMarkForReview,
 }) => (
-  <div className="p-4 flex justify-evenly mb-4 bg-white">
+  <div className="p-4 flex justify-evenly mb-4 ">
     <button
       onClick={() => handleNavigation("previous")}
       disabled={currentQuestionIndex === 0}

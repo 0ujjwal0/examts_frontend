@@ -22,7 +22,7 @@ const TestsPage = () => {
         };
 
         const response = await axios.get(
-          "https://examly-backend-znqt.onrender.com/api/tests/",
+          `${process.env.REACT_APP_API_URL}/api/tests/`, //https://examly-backend-znqt.onrender.com/api/tests/
           config
         );
         setTests(response.data);

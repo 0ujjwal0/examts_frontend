@@ -32,7 +32,7 @@ const StartTest = () => {
         };
 
         const response = await axios.get(
-          `https://examly-backend-znqt.onrender.com/api/tests/${testId}`,
+          `${process.env.REACT_APP_API_URL}/api/tests/${testId}`, //https://examly-backend-znqt.onrender.com/api/tests/${testId}
           config
         );
         setQuestions(response.data.questions);
@@ -141,7 +141,7 @@ const StartTest = () => {
       };
 
       await axios.post(
-        "https://examly-backend-znqt.onrender.com/api/submission/",
+        `${process.env.REACT_APP_API_URL}/api/submission/`, //https://examly-backend-znqt.onrender.com/api/submission/
         submissionData,
         config
       );

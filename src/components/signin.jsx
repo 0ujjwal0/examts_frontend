@@ -25,7 +25,7 @@ const SignIn = () => {
         },
       };
       const { data } = await axios.post(
-        "https://examly-backend-znqt.onrender.com/api/user/login",
+        `${process.env.REACT_APP_API_URL}/api/user/login`, //https://examly-backend-znqt.onrender.com/api/user/login
         { email, password },
         config
       );
